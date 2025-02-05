@@ -78,3 +78,18 @@ TextStyle smallStyle = const TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
 );
+
+const TextStyle button2Semibold = TextStyle(
+  fontFamily: 'Inter',
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: redColor,
+);
+
+const TextStyle label2Semibold = TextStyle(
+  fontFamily: 'Inter',
+  fontSize: 10,
+  height: 16,
+  fontWeight: FontWeight.w500,
+  color: redColor,
+);

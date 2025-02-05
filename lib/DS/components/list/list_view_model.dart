@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 enum ListSize { small, medium, large }
 
 enum ListColor { black, white, blue }
