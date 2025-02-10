@@ -1,40 +1,22 @@
-import 'package:agenda/DS/components/input_Text/input_text_view_model.dart';
+import 'package:agenda/DS/components/Input_Normal_Text/Input_Normal_text_view_model.dart';
 import 'package:agenda/DS/shared/colors.dart';
 import 'package:agenda/DS/shared/style.dart';
 import 'package:flutter/material.dart';
 
-class InputText extends StatefulWidget {
-  final InputTextViewModel viewModel;
+class InputNormalText extends StatefulWidget {
+  final InputNormalTextViewModel viewModel;
 
-  const InputText({super.key, required this.viewModel});
+  const InputNormalText({super.key, required this.viewModel});
 
   @override
-  InputTextState createState() => InputTextState();
+  InputNormalTextState createState() => InputNormalTextState();
 
-  static Widget instantiate(InputTextViewModel viewModel) {
-    return InputText(viewModel: viewModel);
+  static Widget instantiate(InputNormalTextViewModel viewModel) {
+    return InputNormalText(viewModel: viewModel);
   }
 }
 
-class InputTextState extends State<InputText> {
-  late bool obscureText;
-  String? errorMsg;
-
-  @override
-  void initState() {
-    super.initState();
-    obscureText = widget.viewModel.password;
-    widget.viewModel.controller.addListener(validateInput);
-  }
-
-  void validateInput() {
-    final errorText =
-        widget.viewModel.validator?.call(widget.viewModel.controller.text);
-    setState(() {
-      errorMsg = errorText;
-    });
-  }
-
+class InputNormalTextState extends State<InputNormalText> {
   @override
   Widget build(BuildContext context) {
     double horizontalPadding = 20.0;
@@ -44,21 +26,21 @@ class InputTextState extends State<InputText> {
     TextStyle textStyle = textFieldStyle;
 
     switch (widget.viewModel.size) {
-      case InputTextSize.small:
+      case InputNormalTextSize.small:
         horizontalPadding = 16.0;
         verticalPadding = 8.0;
         borderRadius = BorderRadius.circular(4);
         borderSide = const BorderSide(color: grayColor);
         textStyle = smallStyle;
         break;
-      case InputTextSize.medium:
+      case InputNormalTextSize.medium:
         horizontalPadding = 24.0;
         verticalPadding = 12.0;
         borderRadius = BorderRadius.circular(4);
         borderSide = const BorderSide(color: grayColor);
         textStyle = normalStyle;
         break;
-      case InputTextSize.large:
+      case InputNormalTextSize.large:
         horizontalPadding = 32.0;
         verticalPadding = 12.0;
         borderRadius = BorderRadius.circular(4);
@@ -102,13 +84,16 @@ class InputTextState extends State<InputText> {
         borderRadius: borderRadius,
         borderSide: const BorderSide(color: redColorLight, width: 2.0),
       ),
-      errorText: errorMsg,
     );
+
     return TextField(
       controller: widget.viewModel.controller,
-      obscureText: obscureText,
       decoration: decoration,
       style: textStyle,
+      obscureText: widget.viewModel.obscureText,
+      keyboardType: widget.viewModel.keyboardType,
+      enabled: widget.viewModel.isEnabled,
+      inputFormatters: widget.viewModel.inputFormatters,
     );
   }
 }

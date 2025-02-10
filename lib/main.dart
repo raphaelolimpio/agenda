@@ -1,6 +1,4 @@
 import 'package:agenda/Page/cadastro_page/cadastro_page.dart';
-import 'package:agenda/Page/home_page/home_page.dart';
-import 'package:agenda/Page/inicil_page/inicial_page.dart';
 import 'package:agenda/Page/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => CadastroPage(),
       },
     );
   }

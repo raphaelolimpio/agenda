@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const cyanColor = Color(0xff84ffff);
+const cyanColor = Color(0xff00ffff);
+const cyannoramlColor = Color(0xff00f3f3);
 
 //red
 const redColor = Color(0xfff44336);

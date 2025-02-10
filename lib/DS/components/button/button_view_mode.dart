@@ -4,7 +4,7 @@ enum ButtonSize { small, medium, large }
 
 enum ButtonTextStyle { buttonStyle1, buttonStyle2 }
 
-enum ButtonStyleColor { redColor, greenColor, cyanColor }
+enum ButtonStyleColor { redColor, greenColor, cyanColor, orangeColor }
 
 class ButtonViewModel {
   final ButtonSize size;

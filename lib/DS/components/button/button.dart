@@ -48,6 +48,9 @@ class Button extends StatelessWidget {
       case ButtonStyleColor.cyanColor:
         buttonColor = cyanColor;
         break;
+      case ButtonStyleColor.orangeColor:
+        buttonColor = orangeColor;
+        break;
     }
 
     switch (viewModel.textStyle) {
