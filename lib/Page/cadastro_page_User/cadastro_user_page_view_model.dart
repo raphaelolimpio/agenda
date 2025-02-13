@@ -2,7 +2,7 @@ import 'package:agenda/DS/components/Input_Normal_Text/Input_Normal_text_view_mo
 import 'package:agenda/DS/components/input_Text/input_text_view_model.dart';
 import 'package:flutter/material.dart';
 
-class CadastroPageViewModel {
+class CadastroUserPageViewModel {
   final TextEditingController _nameResponsaveController =
       TextEditingController();
   final TextEditingController _nomeController = TextEditingController();
@@ -16,7 +16,7 @@ class CadastroPageViewModel {
   late InputTextViewModel emailViewModel;
   late InputTextViewModel passwordViewModel;
 
-  CadastroPageViewModel() {
+  CadastroUserPageViewModel() {
     nameResponsavelViewModel = InputNormalTextViewModel(
       size: InputNormalTextSize.large,
       hintText: 'Nome do Responsável',

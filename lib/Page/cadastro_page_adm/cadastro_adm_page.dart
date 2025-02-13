@@ -3,29 +3,31 @@ import 'package:agenda/DS/components/button/button.dart';
 import 'package:agenda/DS/components/button/button_view_mode.dart';
 import 'package:agenda/DS/components/input_Text/input_text.dart';
 import 'package:agenda/DS/shared/colors.dart';
-import 'package:agenda/Page/cadastro_page/cadastro_page_view_model.dart';
+import 'package:agenda/Page/cadastro_page_adm/cadastro_adm_page_view_model.dart';
 import 'package:flutter/material.dart';
 
-class CadastroPage extends StatefulWidget {
-  const CadastroPage({super.key});
+class CadastroAdmPage extends StatefulWidget {
+  const CadastroAdmPage({super.key});
   @override
-  State<CadastroPage> createState() => _CadastroPageState();
+  State<CadastroAdmPage> createState() => _CadastroAdmPageState();
 }
 
-class _CadastroPageState extends State<CadastroPage> {
-  late CadastroPageViewModel _viewModel;
+class _CadastroAdmPageState extends State<CadastroAdmPage> {
+  late CadastroAdmPageViewModel _viewModel;
   late ButtonViewModel _buttonViewModel;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = CadastroPageViewModel();
+    _viewModel = CadastroAdmPageViewModel();
     _buttonViewModel = ButtonViewModel(
       title: "Cadastro",
       size: ButtonSize.large,
       style: ButtonStyleColor.greenColor,
       textStyle: ButtonTextStyle.buttonStyle1,
-      onPressed: () {},
+      onPressed: () async {
+        await _viewModel.CadastrarAdm();
+      },
     );
   }
 
@@ -51,7 +53,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
                       blurRadius: 8,
-                      offset: Offset(2, 2),
+                      offset: const Offset(2, 2),
                     ),
                   ],
                 ),
@@ -73,8 +75,6 @@ class _CadastroPageState extends State<CadastroPage> {
                       padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
-                          InputNormalText.instantiate(
-                              _viewModel.nameResponsavelViewModel),
                           const SizedBox(height: 16.0),
                           InputNormalText.instantiate(_viewModel.nomeViewModel),
                           const SizedBox(height: 16.0),
