@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AdmService {
-  final String baseUrl = 'http://localhost:3000/adm';
+  final String baseUrl = 'http://127.0.0.1:3000/adm';
 
   Future<Map<String, dynamic>> getAdmById(int id) async {
     final response = await http.get(Uri.parse('$baseUrl/$id'));
@@ -16,8 +16,9 @@ class AdmService {
   }
 
   Future<void> addAdm(Map<String, dynamic> adm) async {
+    print(adm);
     final response = await http.post(
-      Uri.parse(baseUrl),
+      Uri.parse('$baseUrl'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode(adm),
     );

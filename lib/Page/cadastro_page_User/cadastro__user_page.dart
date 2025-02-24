@@ -14,16 +14,24 @@ class CadastroUserPage extends StatefulWidget {
 
 class _CadastroUserPageState extends State<CadastroUserPage> {
   late CadastroUserPageViewModel _viewModel;
-  late ButtonViewModel _buttonViewModel;
+  late ButtonViewModel _buttonAddViewModel;
+  late ButtonViewModel _buttonSingViewModel;
 
   @override
   void initState() {
     super.initState();
     _viewModel = CadastroUserPageViewModel();
-    _buttonViewModel = ButtonViewModel(
+    _buttonAddViewModel = ButtonViewModel(
       title: "Cadastro",
       size: ButtonSize.large,
       style: ButtonStyleColor.greenColor,
+      textStyle: ButtonTextStyle.buttonStyle1,
+      onPressed: () {},
+    );
+    _buttonSingViewModel = ButtonViewModel(
+      title: "Login",
+      size: ButtonSize.medium,
+      style: ButtonStyleColor.orangeColor,
       textStyle: ButtonTextStyle.buttonStyle1,
       onPressed: () {},
     );
@@ -32,7 +40,7 @@ class _CadastroUserPageState extends State<CadastroUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: cyannoramlColor,
+      backgroundColor: cyanBlackColor,
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -90,8 +98,13 @@ class _CadastroUserPageState extends State<CadastroUserPage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SizedBox(
-                        width: double.infinity,
-                        child: Button.instantiate(_buttonViewModel),
+                        child: Button.instantiate(_buttonAddViewModel),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                        child: Button.instantiate(_buttonSingViewModel),
                       ),
                     ),
                   ],

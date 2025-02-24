@@ -14,16 +14,26 @@ class CadastroAdmPage extends StatefulWidget {
 
 class _CadastroAdmPageState extends State<CadastroAdmPage> {
   late CadastroAdmPageViewModel _viewModel;
-  late ButtonViewModel _buttonViewModel;
+  late ButtonViewModel _buttonAddViewModel;
+  late ButtonViewModel _buttonLoginViewModel;
 
   @override
   void initState() {
     super.initState();
     _viewModel = CadastroAdmPageViewModel();
-    _buttonViewModel = ButtonViewModel(
+    _buttonAddViewModel = ButtonViewModel(
       title: "Cadastro",
       size: ButtonSize.large,
       style: ButtonStyleColor.greenColor,
+      textStyle: ButtonTextStyle.buttonStyle1,
+      onPressed: () async {
+        await _viewModel.CadastrarAdm();
+      },
+    );
+    _buttonLoginViewModel = ButtonViewModel(
+      title: "Login",
+      size: ButtonSize.large,
+      style: ButtonStyleColor.orangeColor,
       textStyle: ButtonTextStyle.buttonStyle1,
       onPressed: () async {
         await _viewModel.CadastrarAdm();
@@ -34,7 +44,7 @@ class _CadastroAdmPageState extends State<CadastroAdmPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: cyannoramlColor,
+      backgroundColor: cyanBlackColor,
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -90,8 +100,13 @@ class _CadastroAdmPageState extends State<CadastroAdmPage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SizedBox(
-                        width: double.infinity,
-                        child: Button.instantiate(_buttonViewModel),
+                        child: Button.instantiate(_buttonAddViewModel),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                        child: Button.instantiate(_buttonLoginViewModel),
                       ),
                     ),
                   ],

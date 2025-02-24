@@ -19,22 +19,29 @@ class Button extends StatelessWidget {
     Color buttonColor = cyanColor;
     double iconSize = 32.0;
     TextStyle buttonTextStyle = buttonStyle1;
+    double buttonWidth = double.infinity;
 
     switch (viewModel.size) {
       case ButtonSize.small:
         horizontalPadding = 16.0;
         verticalPadding = 8.0;
         iconSize = 16.0;
+        buttonWidth = 160;
+
         break;
       case ButtonSize.medium:
-        horizontalPadding = 24.0;
+        horizontalPadding = 15;
         verticalPadding = 12.0;
         iconSize = 24.0;
+        buttonWidth = 220;
+
         break;
       case ButtonSize.large:
         horizontalPadding = 32.0;
         verticalPadding = 12.0;
         iconSize = 32.0;
+        buttonWidth = double.infinity;
+
         break;
     }
 
@@ -70,10 +77,9 @@ class Button extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         textStyle: buttonTextStyle,
+        minimumSize: Size(buttonWidth, verticalPadding * 3),
         padding: EdgeInsets.symmetric(
-          horizontal: horizontalPadding,
-          vertical: verticalPadding,
-        ),
+            horizontal: horizontalPadding, vertical: verticalPadding),
       ),
       child: viewModel.icon != null
           ? Row(
